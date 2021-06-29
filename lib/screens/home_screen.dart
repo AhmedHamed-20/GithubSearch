@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                       icon: Icon(Icons.search),
                       onPressed: () {
                         String user = cubit.text.text.trim();
-                        cubit.getUser(user);
+                        cubit.getUser(user, context);
                       },
                       label: Text('Search'),
                     ),

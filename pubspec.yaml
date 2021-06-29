@@ -32,6 +32,7 @@ dependencies:
   flutter_bloc: ^7.0.1
   google_fonts: ^2.1.0
   dio: ^4.0.0
+  webview_flutter: ^2.0.9
 
 dev_dependencies:
   flutter_test:
