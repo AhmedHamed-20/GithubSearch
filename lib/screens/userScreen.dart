@@ -181,8 +181,8 @@ class UserScreen extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            Webview(cubit.data['html_url']),
+                                        builder: (context) => WebViewExample(
+                                            cubit.data['html_url']),
                                       ));
                                 },
                                 child: Text(

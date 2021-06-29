@@ -1,16 +1,33 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class Webview extends StatelessWidget {
+class WebViewExample extends StatefulWidget {
   String url;
-  Webview(@required this.url);
+  WebViewExample(@required this.url);
+  @override
+  WebViewExampleState createState() => WebViewExampleState();
+}
+
+class WebViewExampleState extends State<WebViewExample> {
+  @override
+  void initState() {
+    super.initState();
+    // Enable hybrid composition.
+    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color(0xff04040C),
+        title: Text('Full account'),
+        centerTitle: true,
+      ),
       body: WebView(
-        initialUrl: url,
+        initialUrl: widget.url,
       ),
     );
   }
