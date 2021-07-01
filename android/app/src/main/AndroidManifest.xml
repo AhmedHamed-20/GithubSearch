@@ -2,7 +2,7 @@
     package="com.example.gethubsearch">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="gethubsearch"
+        android:label="githubsearch"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

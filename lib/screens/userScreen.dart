@@ -83,11 +83,11 @@ class UserScreen extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () {
-                          cubit.getFollowers(usernameController.text, context,
-                              'following', cubit.data['following']);
+                          cubit.getFollowers(
+                              usernameController.text, context, 'following');
                         },
                         child: Text(
-                          '${cubit.data['following']},',
+                          '        ${cubit.data['following']}',
                           style: TextStyle(
                             color: Color(0xff0698DF),
                             fontWeight: FontWeight.bold,
@@ -103,11 +103,11 @@ class UserScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          cubit.getFollowers(usernameController.text, context,
-                              'followers', cubit.data['followers']);
+                          cubit.getFollowers(
+                              usernameController.text, context, 'followers');
                         },
                         child: Text(
-                          '${cubit.data['followers']}',
+                          '${cubit.data['followers']}          ',
                           style: TextStyle(
                             color: Color(0xff0698DF),
                             fontWeight: FontWeight.bold,
