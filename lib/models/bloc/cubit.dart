@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gethubsearch/models/bloc/states.dart';
+import 'package:gethubsearch/screens/constance.dart';
 import 'package:gethubsearch/screens/details_screen.dart';
 import 'package:gethubsearch/screens/userScreen.dart';
 
@@ -34,21 +35,24 @@ class Appcubit extends Cubit<AppState> {
     });
   }
 
-  getFollowers(String userName, BuildContext context, String type) async {
-    var response = await Dio()
-        .get('https://api.github.com/users/${userName}/${type}')
-        .then((value) {
-      details = value.data;
-      print(details);
-      emit(detailsScreen());
+  getFollowers(String userName, BuildContext context, String type,
+      int numberofUsers) async {
+    int n = pag(numberofUsers);
+    print(n);
+    for (int i = 1; i <= n; n++) {
+      var response = await Dio().get(
+          'https://api.github.com/users/${userName}/${type}',
+          queryParameters: {'page': i});
+      details.add(response.data);
+    }
+    print(details.length);
 
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailsScreen(type),
-          ));
-    }).catchError((onError) {
-      print(onError);
-    });
+    emit(detailsScreen());
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DetailsScreen(type),
+        ));
   }
 }

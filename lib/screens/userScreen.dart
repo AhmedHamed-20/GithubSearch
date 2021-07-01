@@ -83,8 +83,8 @@ class UserScreen extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () {
-                          cubit.getFollowers(
-                              usernameController.text, context, 'following');
+                          cubit.getFollowers(usernameController.text, context,
+                              'following', cubit.data['following']);
                         },
                         child: Text(
                           '${cubit.data['following']},',
@@ -103,8 +103,8 @@ class UserScreen extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          cubit.getFollowers(
-                              usernameController.text, context, 'followers');
+                          cubit.getFollowers(usernameController.text, context,
+                              'followers', cubit.data['followers']);
                         },
                         child: Text(
                           '${cubit.data['followers']}',

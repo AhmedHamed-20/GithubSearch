@@ -15,7 +15,12 @@ class DetailsScreen extends StatelessWidget {
         backgroundColor: Color(0xff04040C),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text(type),
+          title: Text(
+            type,
+            style: TextStyle(
+              color: Color(0xff0698DF),
+            ),
+          ),
           centerTitle: true,
         ),
         body: ListView.builder(
