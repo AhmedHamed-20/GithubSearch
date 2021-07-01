@@ -23,47 +23,59 @@ class DetailsScreen extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: ListView.builder(
-            itemCount: cubit.details.length,
-            itemBuilder: (contex, index) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8, top: 13),
-                child: Column(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        cubit.details[index]['login'],
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      leading: CircleAvatar(
-                        radius: 30,
-                        backgroundImage: NetworkImage(
-                          cubit.details[index]['avatar_url'],
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WebViewExample(
-                                cubit.details[index]['html_url'],
-                              ),
-                            ));
-                      },
-                    ),
-                    Divider(
-                      color: Colors.grey,
-                      height: 10,
-                      thickness: 1,
-                      indent: 90,
-                      endIndent: 50,
-                    ),
-                  ],
+        body: cubit.details.length == 0
+            ? Center(
+                child: Text(
+                  'user not have ${type} yet',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              );
-            }),
+              )
+            : ListView.builder(
+                itemCount: cubit.details.length,
+                itemBuilder: (contex, index) {
+                  return Padding(
+                    padding:
+                        const EdgeInsets.only(left: 8.0, right: 8, top: 13),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            cubit.details[index]['login'],
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          leading: CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(
+                              cubit.details[index]['avatar_url'],
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => WebViewExample(
+                                    cubit.details[index]['html_url'],
+                                  ),
+                                ));
+                          },
+                        ),
+                        Divider(
+                          color: Colors.grey,
+                          height: 10,
+                          thickness: 1,
+                          indent: 90,
+                          endIndent: 50,
+                        ),
+                      ],
+                    ),
+                  );
+                }),
       );
     });
   }

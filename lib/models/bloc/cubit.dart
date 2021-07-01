@@ -40,9 +40,13 @@ class Appcubit extends Cubit<AppState> {
   }
 
   getFollowers(String userName, BuildContext context, String type) async {
-    var response = await Dio().get(
-        'https://api.github.com/users/${userName}/${type}',
-        queryParameters: {'per_page': 100}).then((value) {
+    var response = await Dio()
+        .get('https://api.github.com/users/${userName}/${type}',
+            queryParameters: {'per_page': 100},
+            options: Options(headers: {
+              'Authorization': 'Token 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'
+            }))
+        .then((value) {
       details = value.data;
       emit(detailsScreen());
       Navigator.push(
