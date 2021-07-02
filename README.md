@@ -1,4 +1,4 @@
-# gethubsearch
+# githubsearch
 
 A new Flutter project.
 
