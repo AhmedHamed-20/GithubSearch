@@ -10,7 +10,9 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = Appcubit.get(context);
-    return BlocBuilder<Appcubit, AppState>(builder: (context, state) {
+    return BlocBuilder<Appcubit, AppState>(
+        // bloc: Appcubit()..checkConnecthion(context),
+        builder: (context, state) {
       return Scaffold(
         backgroundColor: Color(0xff04040C),
         appBar: AppBar(
@@ -56,13 +58,16 @@ class DetailsScreen extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => WebViewExample(
-                                    cubit.details[index]['html_url'],
-                                  ),
-                                ));
+                            cubit.checkConnecthion(context);
+                            cubit.connecthion == true
+                                ? Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => WebViewExample(
+                                        cubit.details[index]['html_url'],
+                                      ),
+                                    ))
+                                : SizedBox();
                           },
                         ),
                         Divider(

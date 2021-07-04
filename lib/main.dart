@@ -13,15 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<Appcubit>(create: (BuildContext context) => Appcubit())
+        BlocProvider<Appcubit>(create: (BuildContext context) => Appcubit()),
       ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: HomeScreen(),
-      ),
+      child: MaterialApp(home: HomeScreen()),
     );
   }
 }

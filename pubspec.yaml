@@ -34,6 +34,9 @@ dependencies:
   dio: ^4.0.0
   webview_flutter: ^2.0.9
   flutter_webview_plugin: ^0.4.0
+  animations: ^2.0.0
+  internet_connection_checker: ^0.0.1+1
+
 
 dev_dependencies:
   flutter_test:

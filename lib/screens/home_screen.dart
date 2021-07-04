@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
     var cubit = Appcubit.get(context);
 
     return BlocBuilder<Appcubit, AppState>(
+      // bloc: Appcubit()..checkConnecthion(context),
       builder: (context, state) {
         return SafeArea(
           child: Scaffold(
@@ -116,7 +117,10 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () {
                         String UserName = datafromTextField.trim();
                         usernameController.text = UserName;
-                        cubit.getUser(UserName, context);
+                        cubit.checkConnecthion(context);
+                        cubit.connecthion == true
+                            ? cubit.getUser(UserName, context)
+                            : SizedBox();
                       },
                       label: Text('Search'),
                     ),
