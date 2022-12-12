@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gethubsearch/core/const/const.dart';
-import 'package:gethubsearch/features/view/screens/user_info_screen.dart';
-import 'package:gethubsearch/features/view/widgets/search_button_design.dart';
-import 'package:gethubsearch/features/view_model/cubit/users_cubit.dart';
+import 'package:gethubsearch/features/user_profile/view/screens/user_info_screen.dart';
+import 'package:gethubsearch/features/user_profile/view/widgets/search_button_design.dart';
+import 'package:gethubsearch/features/user_profile/view_model/cubit/users_cubit.dart';
 
-import '../../../core/utls/utls.dart';
+import '../../../../core/utls/utls.dart';
 
 class SearchButtonWidget extends StatelessWidget {
   const SearchButtonWidget({super.key});

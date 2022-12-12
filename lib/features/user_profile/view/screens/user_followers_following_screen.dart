@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gethubsearch/features/view_model/cubit/users_cubit.dart';
 
-import '../../../core/utls/utls.dart';
+import '../../../../core/utls/utls.dart';
+import '../../view_model/cubit/users_cubit.dart';
 import '../widgets/other_users_info_card.dart';
 
 class UserFollowerFollowingScreen extends StatefulWidget {

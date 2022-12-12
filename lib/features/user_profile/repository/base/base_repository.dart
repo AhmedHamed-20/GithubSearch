@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:gethubsearch/core/error/failure.dart';
-import 'package:gethubsearch/features/models/repository_information_model.dart';
+import 'package:gethubsearch/features/user_profile/models/repository_information_model.dart';
 
 import '../../models/follower_following_mode.dart';
 import '../../models/user_info_model.dart';

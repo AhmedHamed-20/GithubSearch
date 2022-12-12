@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gethubsearch/core/const/const.dart';
-import 'package:gethubsearch/features/models/user_info_model.dart';
-import 'package:gethubsearch/features/view/screens/user_followers_following_screen.dart';
-import 'package:gethubsearch/features/view_model/cubit/users_cubit.dart';
+import 'package:gethubsearch/features/user_profile/models/user_info_model.dart';
+import 'package:gethubsearch/features/user_profile/view/screens/user_followers_following_screen.dart';
+import 'package:gethubsearch/features/user_profile/view_model/cubit/users_cubit.dart';
 
 import '../widgets/more_user_info_widget.dart';
 import '../widgets/repos_widget.dart';

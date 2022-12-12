@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gethubsearch/core/const/const.dart';
 import 'package:gethubsearch/core/widget/defaults.dart';
 
-import '../../../core/const/text_editing_controllers.dart';
+import '../../../../core/const/text_editing_controllers.dart';
 import '../widgets/search_button_widget.dart';
 
 class HomeScreen extends StatelessWidget {

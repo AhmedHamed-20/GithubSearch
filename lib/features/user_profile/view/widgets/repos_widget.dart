@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gethubsearch/core/const/const.dart';
 
-import '../../../core/utls/utls.dart';
+import '../../../../core/utls/utls.dart';
 import '../../view_model/cubit/users_cubit.dart';
 
 class ReposWidget extends StatelessWidget {

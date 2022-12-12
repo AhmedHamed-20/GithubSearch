@@ -4,8 +4,8 @@ import 'package:gethubsearch/core/network/dio.dart';
 import 'package:gethubsearch/core/services/service_locator.dart';
 
 import 'core/theme/app_theme.dart';
-import 'features/view/screens/home_screen.dart';
-import 'features/view_model/cubit/users_cubit.dart';
+import 'features/user_profile/view/screens/home_screen.dart';
+import 'features/user_profile/view_model/cubit/users_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

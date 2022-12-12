@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:gethubsearch/core/network/dio.dart';
 import 'package:gethubsearch/core/network/endpoints.dart';
-import 'package:gethubsearch/features/models/repository_information_model.dart';
-import 'package:gethubsearch/features/models/user_info_model.dart';
+import 'package:gethubsearch/features/user_profile/models/repository_information_model.dart';
+import 'package:gethubsearch/features/user_profile/models/user_info_model.dart';
 import 'package:gethubsearch/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:gethubsearch/features/repository/base/base_repository.dart';
+import 'package:gethubsearch/features/user_profile/repository/base/base_repository.dart';
 
 import '../../models/follower_following_mode.dart';
 

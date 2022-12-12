@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
-import 'package:gethubsearch/features/repository/remote/remote_repository_impl.dart';
+import 'package:gethubsearch/features/user_profile/repository/remote/remote_repository_impl.dart';
 
-import '../../features/repository/base/base_repository.dart';
-import '../../features/view_model/cubit/users_cubit.dart';
+import '../../features/user_profile/repository/base/base_repository.dart';
+import '../../features/user_profile/view_model/cubit/users_cubit.dart';
 
 final serviceLocator = GetIt.instance;
 
