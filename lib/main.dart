@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gethubsearch/models/bloc/cubit.dart';
-import 'package:gethubsearch/screens/home_screen.dart';
+import 'package:gethubsearch/core/network/dio.dart';
+import 'package:gethubsearch/core/services/service_locator.dart';
 
-void main() {
-  runApp(MyApp());
+import 'core/theme/app_theme.dart';
+import 'features/view/screens/home_screen.dart';
+import 'features/view_model/cubit/users_cubit.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  ServiceLocator.init();
+  await DioHelper.init();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<Appcubit>(create: (BuildContext context) => Appcubit()),
+        BlocProvider(
+          create: (context) => serviceLocator<UsersCubit>(),
+        ),
       ],
-      child: MaterialApp(home: HomeScreen()),
+      child: MaterialApp(
+        home: const HomeScreen(),
+        theme: AppTheme.lightMode,
+        darkTheme: AppTheme.darkMode,
+        themeMode: ThemeMode.light,
+      ),
     );
   }
 }
