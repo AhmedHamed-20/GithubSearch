@@ -27,7 +27,6 @@ class RemoteRepositoryImpl extends BaseRepository {
         ),
       );
     } on DioError catch (e) {
-      print(e.response);
       return Left(
         ServerFailure(message: e.response?.data['message']),
       );

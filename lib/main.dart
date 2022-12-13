@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        title: 'Github Search',
         home: const HomeScreen(),
         theme: AppTheme.lightMode,
         darkTheme: AppTheme.darkMode,
