@@ -35,8 +35,8 @@ class Defaults {
         suffixIcon: suffixIcon,
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppRadius.r16),
-            borderSide: const BorderSide(
-              color: Colors.orangeAccent,
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor,
             )),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppRadius.r16),
