@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:gethubsearch/core/network/dio.dart';
 import 'package:gethubsearch/core/network/endpoints.dart';
+import 'package:gethubsearch/core/network/token.dart';
 import 'package:gethubsearch/features/user_profile/models/repository_information_model.dart';
 import 'package:gethubsearch/features/user_profile/models/user_info_model.dart';
 import 'package:gethubsearch/core/error/failure.dart';
@@ -15,8 +16,10 @@ class RemoteRepositoryImpl extends BaseRepository {
       UserGetInfoParams params) async {
     try {
       final response = await DioHelper.getData(
-        url: EndPoints.userByUserName + params.userName,
-      );
+          url: EndPoints.userByUserName + params.userName,
+          headers: {
+            'Authorization': AccessToken.accessToken,
+          });
 
       return Right(
         UserInfoModel.fromJson(
@@ -24,6 +27,7 @@ class RemoteRepositoryImpl extends BaseRepository {
         ),
       );
     } on DioError catch (e) {
+      print(e.response);
       return Left(
         ServerFailure(message: e.response?.data['message']),
       );
@@ -34,7 +38,9 @@ class RemoteRepositoryImpl extends BaseRepository {
   Future<Either<Failure, List<RepositoryInformationModel>>> getUserRepositories(
       RepositoryGetInfoParams params) async {
     try {
-      final response = await DioHelper.getData(url: params.repositoryUrl);
+      final response = await DioHelper.getData(
+          url: params.repositoryUrl,
+          headers: {'Authorization': AccessToken.accessToken});
       return Right(
         (response?.data as List)
             .map(
@@ -53,7 +59,9 @@ class RemoteRepositoryImpl extends BaseRepository {
   Future<Either<Failure, List<UserInfoModel>>> getRepoContributors(
       RepositoryGetInContributorfoParams params) async {
     try {
-      final respone = await DioHelper.getData(url: params.repositoryUrl);
+      final respone = await DioHelper.getData(
+          url: params.repositoryUrl,
+          headers: {'Authorization': AccessToken.accessToken});
       return Right(
         (respone?.data as List)
             .map(
@@ -72,7 +80,9 @@ class RemoteRepositoryImpl extends BaseRepository {
   Future<Either<Failure, List<FollowersFollowingModel>>> getUserFollowers(
       UserFollowersParams params) async {
     try {
-      final response = await DioHelper.getData(url: params.userFollowersLink);
+      final response = await DioHelper.getData(
+          url: params.userFollowersLink,
+          headers: {'Authorization': AccessToken.accessToken});
       return Right(
         (response?.data as List)
             .map(
@@ -91,7 +101,9 @@ class RemoteRepositoryImpl extends BaseRepository {
   Future<Either<Failure, List<FollowersFollowingModel>>> getUserFollowing(
       UserFollowingParams params) async {
     try {
-      final response = await DioHelper.getData(url: params.userFollowingLink);
+      final response = await DioHelper.getData(
+          url: params.userFollowingLink,
+          headers: {'Authorization': AccessToken.accessToken});
       return Right(
         (response?.data as List)
             .map(
