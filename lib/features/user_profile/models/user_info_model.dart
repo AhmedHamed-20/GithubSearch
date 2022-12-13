@@ -24,7 +24,7 @@ class UserInfoModel extends Equatable {
 
   factory UserInfoModel.fromJson(Map<String, dynamic> json) {
     return UserInfoModel(
-      name: json['name'],
+      name: json['name'] ?? '',
       userName: json['login'],
       userPhotoUrl: json['avatar_url'],
       followers: json['followers'],

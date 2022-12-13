@@ -147,4 +147,33 @@ class UsersCubit extends Cubit<UsersState> {
       userGetByUserNameRequestStatues: UserGetByUserNameRequestStatues.idl,
     ));
   }
+
+  Future<void> getAnotherUserProfile(String userName) async {
+    emit(state.copyWith(
+      userGetByUserHtmlUrlRequestStatues:
+          UserGetByUserHtmlUrlRequestStatues.loading,
+    ));
+    final result = await baseRepository.getUserInfoByUserName(
+      UserGetInfoParams(
+        userName: userName,
+      ),
+    );
+
+    result.fold(
+      (failure) {
+        emit(state.copyWith(
+          userGetByUserHtmlUrlRequestStatues:
+              UserGetByUserHtmlUrlRequestStatues.error,
+          errorMessage: failure.message,
+        ));
+      },
+      (anotherUserProfile) {
+        emit(state.copyWith(
+          userGetByUserHtmlUrlRequestStatues:
+              UserGetByUserHtmlUrlRequestStatues.success,
+          anotherUserProfile: anotherUserProfile,
+        ));
+      },
+    );
+  }
 }

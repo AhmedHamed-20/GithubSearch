@@ -6,6 +6,12 @@ enum UserGetByUserNameRequestStatues {
   notFound,
 }
 
+enum UserGetByUserHtmlUrlRequestStatues {
+  loading,
+  success,
+  error,
+}
+
 enum RepositoryGetByRepositoryUrlRequestStatues {
   loading,
   success,

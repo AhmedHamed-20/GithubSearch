@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gethubsearch/core/const/const.dart';
 
 import '../../../../core/utls/utls.dart';
 import '../../view_model/cubit/users_cubit.dart';
 import '../widgets/other_users_info_card.dart';
+import 'another_users_info_screens.dart';
 
 class UserFollowerFollowingScreen extends StatefulWidget {
   const UserFollowerFollowingScreen(
@@ -49,9 +51,18 @@ class _UserFollowerFollowingScreenState
                 return ListView.builder(
                   itemCount: state.userFollowers.length,
                   itemBuilder: (context, index) {
-                    return OtherUsersInfoCard(
-                      avatarUrl: state.userFollowers[index].userPhotoUrl,
-                      userName: state.userFollowers[index].userName,
+                    return InkWell(
+                      onTap: () {
+                        navigatePushTo(
+                            navigateTO: AnotherUsersInoScreens(
+                                anotherUserHtmlUrl:
+                                    state.userFollowers[index].userName),
+                            context: context);
+                      },
+                      child: OtherUsersInfoCard(
+                        avatarUrl: state.userFollowers[index].userPhotoUrl,
+                        userName: state.userFollowers[index].userName,
+                      ),
                     );
                   },
                 );
@@ -73,9 +84,18 @@ class _UserFollowerFollowingScreenState
                 return ListView.builder(
                   itemCount: state.userFollowing.length,
                   itemBuilder: (context, index) {
-                    return OtherUsersInfoCard(
-                      avatarUrl: state.userFollowing[index].userPhotoUrl,
-                      userName: state.userFollowing[index].userName,
+                    return InkWell(
+                      onTap: () {
+                        navigatePushTo(
+                            navigateTO: AnotherUsersInoScreens(
+                                anotherUserHtmlUrl:
+                                    state.userFollowing[index].userName),
+                            context: context);
+                      },
+                      child: OtherUsersInfoCard(
+                        avatarUrl: state.userFollowing[index].userPhotoUrl,
+                        userName: state.userFollowing[index].userName,
+                      ),
                     );
                   },
                 );

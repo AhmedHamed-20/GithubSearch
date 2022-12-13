@@ -6,10 +6,24 @@ import 'package:gethubsearch/core/const/const.dart';
 import '../../../../core/utls/utls.dart';
 import '../../view_model/cubit/users_cubit.dart';
 
-class ReposWidget extends StatelessWidget {
+class ReposWidget extends StatefulWidget {
   const ReposWidget({
     Key? key,
+    required this.reposUrl,
   }) : super(key: key);
+  final String reposUrl;
+  @override
+  State<ReposWidget> createState() => _ReposWidgetState();
+}
+
+class _ReposWidgetState extends State<ReposWidget> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<UsersCubit>(context)
+        .getRepositoryInformationByRepositoryUrlAndContributors(
+            widget.reposUrl);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +66,8 @@ class ReposWidget extends StatelessWidget {
                           child: ListTile(
                             title: Text(
                               state.repositoryInformationModel[index].repoName,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: Theme.of(context)
                                   .textTheme
                                   .titleLarge

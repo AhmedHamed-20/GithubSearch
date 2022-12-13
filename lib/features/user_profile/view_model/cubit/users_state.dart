@@ -1,6 +1,8 @@
 part of 'users_cubit.dart';
 
 class UsersState extends Equatable {
+  final UserInfoModel? anotherUserProfile;
+  final UserGetByUserHtmlUrlRequestStatues userGetByUserHtmlUrlRequestStatues;
   final List<FollowersFollowingModel> userFollowers;
   final List<FollowersFollowingModel> userFollowing;
   final UserFollowersAndFollowingRequestStatues userFollowersRequestStatus;
@@ -17,6 +19,9 @@ class UsersState extends Equatable {
 
   const UsersState(
       {this.userInfoModel,
+      this.userGetByUserHtmlUrlRequestStatues =
+          UserGetByUserHtmlUrlRequestStatues.loading,
+      this.anotherUserProfile,
       this.userFollowers = const [],
       this.userFollowing = const [],
       this.userFollowersRequestStatus =
@@ -33,6 +38,8 @@ class UsersState extends Equatable {
           RepositoryGetContribuotorsRequestStatues.loading,
       this.errorMessage = ''});
   UsersState copyWith({
+    UserGetByUserHtmlUrlRequestStatues? userGetByUserHtmlUrlRequestStatues,
+    UserInfoModel? anotherUserProfile,
     List<FollowersFollowingModel>? userFollowers,
     List<FollowersFollowingModel>? userFollowing,
     UserFollowersAndFollowingRequestStatues? userFollowersRequestStatus,
@@ -48,6 +55,9 @@ class UsersState extends Equatable {
     String? errorMessage,
   }) {
     return UsersState(
+      userGetByUserHtmlUrlRequestStatues: userGetByUserHtmlUrlRequestStatues ??
+          this.userGetByUserHtmlUrlRequestStatues,
+      anotherUserProfile: anotherUserProfile ?? this.anotherUserProfile,
       userFollowers: userFollowers ?? this.userFollowers,
       userFollowing: userFollowing ?? this.userFollowing,
       userFollowersRequestStatus:
@@ -72,6 +82,8 @@ class UsersState extends Equatable {
 
   @override
   List<Object?> get props => [
+        userGetByUserHtmlUrlRequestStatues,
+        anotherUserProfile,
         userFollowers,
         userFollowing,
         userFollowersRequestStatus,

@@ -63,3 +63,12 @@ class UserFollowingParams extends Equatable {
   @override
   List<Object?> get props => [userFollowingLink];
 }
+
+class AnotherUserProfileByHtmlUrlParams extends Equatable {
+  final String userName;
+
+  const AnotherUserProfileByHtmlUrlParams(this.userName);
+
+  @override
+  List<Object?> get props => [userName];
+}
