@@ -15,7 +15,8 @@ class RemoteRepositoryImpl extends BaseRepository {
       UserGetInfoParams params) async {
     try {
       final response = await DioHelper.getData(
-          url: EndPoints.userByUserName + params.userName);
+        url: EndPoints.userByUserName + params.userName,
+      );
 
       return Right(
         UserInfoModel.fromJson(
