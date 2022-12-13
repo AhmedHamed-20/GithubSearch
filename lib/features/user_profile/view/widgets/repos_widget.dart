@@ -5,6 +5,7 @@ import 'package:gethubsearch/core/const/const.dart';
 
 import '../../../../core/utls/utls.dart';
 import '../../view_model/cubit/users_cubit.dart';
+import '../screens/repository_web_view_screen.dart';
 
 class ReposWidget extends StatefulWidget {
   const ReposWidget({
@@ -58,29 +59,42 @@ class _ReposWidgetState extends State<ReposWidget> {
                         mainAxisSpacing: AppWidth.w10,
                       ),
                       itemBuilder: (context, index) {
-                        return Card(
-                          color: AppColors.seconderyColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppRadius.r10),
-                          ),
-                          child: ListTile(
-                            title: Text(
-                              state.repositoryInformationModel[index].repoName,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge
-                                  ?.copyWith(
-                                      color: Theme.of(context).primaryColor),
-                            ),
-                            subtitle: Text(
-                              DateTimeFormat.format(
-                                  DateTime.parse(state
+                        return InkWell(
+                          onTap: () {
+                            navigatePushTo(
+                                navigateTO: ReposWebViewScreen(
+                                  repoUrl: state
                                       .repositoryInformationModel[index]
-                                      .createdAt),
-                                  format: 'd M Y'),
-                              style: Theme.of(context).textTheme.titleMedium,
+                                      .repoUrl,
+                                ),
+                                context: context);
+                          },
+                          child: Card(
+                            color: AppColors.seconderyColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(AppRadius.r10),
+                            ),
+                            child: ListTile(
+                              title: Text(
+                                state
+                                    .repositoryInformationModel[index].repoName,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(
+                                        color: Theme.of(context).primaryColor),
+                              ),
+                              subtitle: Text(
+                                DateTimeFormat.format(
+                                    DateTime.parse(state
+                                        .repositoryInformationModel[index]
+                                        .createdAt),
+                                    format: 'd M Y'),
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
                             ),
                           ),
                         );
