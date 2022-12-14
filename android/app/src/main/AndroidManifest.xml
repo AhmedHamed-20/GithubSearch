@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.github_search">
-   
+   <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Github Search"
         android:name="${applicationName}"
