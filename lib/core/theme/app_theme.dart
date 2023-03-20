@@ -8,13 +8,15 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
         elevation: 0, color: AppColors.transparentColor, centerTitle: true),
     colorScheme: ColorScheme.light(
-        secondary: AppColors.primaryColor, primary: AppColors.primaryColor),
+        background: AppColors.backgroundColorWhite,
+        secondary: AppColors.primaryColor,
+        primary: AppColors.primaryColor),
     splashColor: AppColors.primaryColor,
     bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: Colors.transparent,
       modalBackgroundColor: Colors.transparent,
     ),
-    backgroundColor: AppColors.backgroundColorWhite,
+
     textTheme: TextTheme(
       bodyLarge: GoogleFonts.rubik(
           fontSize: AppFontSize.s18, color: AppColors.subtitleTextColor),
@@ -69,14 +71,15 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
         elevation: 0, color: AppColors.transparentColor, centerTitle: true),
     colorScheme: ColorScheme.dark(
-        secondary: AppColors.primaryColor, primary: AppColors.primaryColor),
+        background: AppColors.backgroundColorDark,
+        secondary: AppColors.primaryColor,
+        primary: AppColors.primaryColor),
     splashColor: AppColors.primaryColor,
     bottomSheetTheme: const BottomSheetThemeData(
       backgroundColor: Colors.transparent,
       modalBackgroundColor: Colors.transparent,
     ),
 
-    backgroundColor: AppColors.backgroundColorDark,
     textTheme: TextTheme(
       bodyLarge: GoogleFonts.rubik(
           fontSize: AppFontSize.s18, color: AppColors.subtitleTextColor),

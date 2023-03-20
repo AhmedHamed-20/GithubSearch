@@ -1,27 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dio/dio.dart';
 
-import 'endpoints.dart';
-
 class DioHelper {
-  static Response? response;
-  static Dio? dio;
+  Dio dio;
+  DioHelper({
+    required this.dio,
+  });
 
-  static init() {
-    dio = Dio(
-      BaseOptions(
-        baseUrl: EndPoints.baseUrl,
-        receiveDataWhenStatusError: true,
-      ),
-    );
-  }
-
-  static Future<Response<dynamic>?> getData({
+  Future<Response<dynamic>?> getData({
     required String url,
     Map<String, dynamic>? query,
     Map<String, dynamic>? headers,
     ProgressCallback? onReceiveProgress,
   }) async {
-    return response = await dio?.get(
+    return await dio.get(
       url,
       queryParameters: query,
       onReceiveProgress: onReceiveProgress,
@@ -31,14 +23,14 @@ class DioHelper {
     );
   }
 
-  static Future<Response<dynamic>?> postData({
+  Future<Response<dynamic>?> postData({
     required String url,
     dynamic data,
     Map<String, dynamic>? headers,
     ProgressCallback? onReceiveProgress,
     ProgressCallback? onSendProgress,
   }) async {
-    return response = await dio?.post(
+    return await dio.post(
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
       url,
@@ -47,24 +39,24 @@ class DioHelper {
     );
   }
 
-  static Future<dynamic> deleteData(
+  Future<dynamic> deleteData(
       {String? url,
       Map<String, dynamic>? query,
       Map<String, dynamic>? headers}) async {
-    return response = await dio!.delete(
+    return await dio.delete(
       url!,
       queryParameters: query,
       options: Options(headers: headers),
     );
   }
 
-  static Future<dynamic> patchData({
+  Future<dynamic> patchData({
     String? url,
     Map<String, dynamic>? query,
     Map<String, dynamic>? headers,
     dynamic data,
   }) async {
-    return response = await dio!.patch(
+    return await dio.patch(
       data: data,
       url!,
       queryParameters: query,
