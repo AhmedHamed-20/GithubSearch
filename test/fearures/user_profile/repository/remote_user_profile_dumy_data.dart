@@ -21,6 +21,15 @@ const Map<String, dynamic> tFollowersFollowingMap = {
   'login': 'login',
   'avatar_url': 'avatar_url',
 };
+const Map<String, dynamic> tRepositoryInformationMap = {
+  'language': 'language',
+  'name': 'name',
+  'html_url': 'html_url',
+  'languages_url': 'languages_url',
+  'created_at': 'created_at',
+  'updated_at': 'updated_at',
+  'contributors_url': 'contributors_url',
+};
 Response tgetUserByUserNameResponse = Response(
     statusCode: 200,
     data: tgetUserByUserNameMap,
@@ -35,17 +44,7 @@ Response tGetUserFollowersFollowingResponse = Response(
     requestOptions: RequestOptions(path: 'followers_url'));
 Response tgetUserRepositoriesResponse = Response(
     statusCode: 200,
-    data: [
-      {
-        'language': 'language',
-        'name': 'reponame',
-        'html_url': 'repoUrl',
-        'languages_url': 'repoLanguagesUrl',
-        'created_at': 'createdAt',
-        'updated_at': 'updatedAt',
-        'contributors_url': 'contributorsUrl'
-      }
-    ],
+    data: [tRepositoryInformationMap],
     requestOptions: RequestOptions(
         path: const RepositoryGetInfoParams('reposUrl').repositoryUrl));
 UserInfoModel tUserInfModel = UserInfoModel.fromJson(tgetUserByUserNameMap);
